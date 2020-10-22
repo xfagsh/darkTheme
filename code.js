@@ -1,9 +1,5 @@
 const slider = document.querySelector('.switch');
-const DarkThemeBG = document.querySelectorAll('.bg-dark');
-const DarkThemeTXT = document.querySelectorAll('.text-white');
-const boxWrapper = document.querySelector('.boxWrapper');
-const card = document.querySelector('.card')
-
+const card = document.querySelectorAll('.card');
 let navbar = document.querySelector('.navbar');
 
 
@@ -11,8 +7,19 @@ let navbar = document.querySelector('.navbar');
 console.log(slider);
 
 
-slider.addEventListener('click',() =>{
-  navbar.classList.remove("bg-dark");
-  navbar.classList.add("bg-light");
-
+slider.addEventListener('change',() =>{
+  navbar.classList.toggle("bg-dark");
+  navbar.classList.toggle("bg-light");
+  navbar.classList.toggle("navbar-dark");
+  navbar.classList.toggle("navbar-light");
 })
+
+
+for (let i = 0; i < card.length; i++) {
+  const cards = card[i];
+  slider.addEventListener('change',() =>{
+    cards.classList.toggle("bg-dark");
+    cards.classList.toggle("bg-light");
+    
+  })
+}
